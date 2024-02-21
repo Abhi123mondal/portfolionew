@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-color:#081b29;
+    --main-color:#00abf0;
+    --text-color:#333;
+    --second-text-color:#555;
+    --white-color:#fff;
+    --cover-color:linear-gradient(45deg,#00abf0,#006e9a);
+    --pages-color:linear-gradient(90deg,#fff,#ddd);
+    --border: .125rem solid #00abf0;
+    --box-shadow:0 0 .6rem rgba(0,0,0,.2);
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: sans-serif;
+    background-color:var(--main-color)
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 400px;
+    height: 550px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+    padding: 2rem;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+    font-size: 3rem;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+/* i {
+    font-size: 50px;
+    color: gray;
+} */
+
+/* Paper stack order */
+#p1 {
+    z-index: 3;
+}
+
+#p2 {
+    z-index: 2;
+}
+
+#p3 {
+    z-index: 1;
+}
+
+img{
+    height: 150px;
+    width: 150px;
+    border: var(--border);
+    border-radius: 50%;
+}
+.front-content h3{
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+.front-content .social-media {
+    padding: 0.5rem;
+}
+.front-content .social-media a{
+    display: inline-flex;
+    background: transparent;
+    border: var(--border);
+    border-radius: 50%;
+    color: var(--main-color);
+    height: 2.5rem;
+    width: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    transition: 1s;
+    text-decoration: none;
+}
+.front-content .social-media a:hover {
+    background:var(--main-color);
+    color: var(--white-color);
+    cursor: pointer;
+}
+.front-content p {
+    text-align: center;
+    font-weight: bold;
+}
+
+.front-content .btn-box{
+    margin-top: 1.2em;
+}
+.btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    height: 3rem;
+    background: var(--main-color);
+    border-radius: .3rem;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 600;
+    transition: 1s;
+    border: var(--border);
+    text-decoration: none;
+}
+.btn:hover{
+    background: transparent;
+    color: var(--main-color);
+    
+}
+.btn-box .btn:nth-child(2){
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-box .btn:nth-child(2):hover{
+    background: var(--main-color);
+    color: var(--white-color);
+  
+}
+.workduc-content h1{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.workduc-content .year{
+    color: var(--main-color);
+}
+.workduc-content .year i{
+    margin-right: .4rem;
+}
+.workduc-content {
+    margin-bottom: 1.2rem;
+}
+.workduc-box{
+    border-left: var(--border);
+    padding-left: 1rem;
+}
+.workduc-box .workduc-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    left: -1.625rem;
+}
+.workduc-box .workduc-content{
+    position: relative;
+
+}
+#p2 #h3{
+    font-size: 1rem;
+    color: var(--bg-color);
+}
+#p2 #p{
+    font-weight: 500;
+    text-align: left;
+}
+#f2{
+    padding-left: 1rem;
+}
+.services-box{
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem;
+    gap: 1rem;
+}
+.services-box .services-content{
+    flex: 1 1 10rem;
+    border: var(--border);
+    border-radius: .5rem;
+    text-align: center;
+    padding: .8rem .5rem 1.1rem;
+    transition: .3s ease;
+}
+#serve{
+    padding: 0;
+}
+.services-content i{
+    font-size: 2.5rem;
+    color: var(--main-color);
+}
+.skills-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.skills-box .skills-content{
+   
+    flex: 1 1 20rem;
+
+}
+.services-content h3{
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-bottom: .6rem;
+}
+.skills-content .content{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+.skills-content .content span{
+    display: inline-flex;
+width: 6rem;
+height: 5rem;
+border-radius: .3rem;
+border: var(--border);
+justify-content: center;
+align-items: center;
+flex-direction: column;
+transition: .3s ease;
+}
+.skills-content .content span i{
+    font-size: 3rem;
+    color: var(--main-color);
+}
+/* .skills-content .content span:hover{
+    box-shadow: var(--box-shadow);
+} */
+#f3{
+    padding: 1rem;
+}
+.contact-box .field{
+    width: 100%;
+    background: transparent;
+    border: var(--border);
+    border-radius: .3rem;
+    padding: .8rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
